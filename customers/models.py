@@ -10,3 +10,6 @@ class Customer(models.Model):
 
 
 class Bussiness(models.Model):
+    bussiness_name = models.CharField(blank=True, max_length=200)
+    address = models.CharField(blank=True, max_length=200)
+    
