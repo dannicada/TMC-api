@@ -3,7 +3,7 @@ from .models import Customer
 
 
 
-class Loan(ModelSerializer):
+class LoanSerializer(ModelSerializer):
     class Meta:
         model = Customer
         fields = '__all__'

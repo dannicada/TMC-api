@@ -1,9 +1,25 @@
 from django.db import models
+from customers.models import Customer
 
 # Create your models here.
 class Loan(models.Model):
-    amount = models.IntegerField(blank=True)
-    repayment_amount = models.IntegerField(blank=True)
-    interest = models.FloatField(blank=True)
+    customer = models.ForeignKey(to=Customer, on_delete=models.SET_NULL, null=True)
+    amount = models.DecimalField(blank=True, max_digits=19, decimal_places=10)
+    repayment_amount = models.DecimalField(blank=True, max_digits=19, decimal_places=10)
+    interest = models.DecimalField(blank=True, max_digits=19, decimal_places=10)
     repaid = models.BooleanField(default=False)
+    approved = models.BooleanField(default=False)
+    loan_type = models.CharField(max_length=100, blank=True),
+    start_date = models.DateField()
+    due_date = models.DateField()
+
+
+    def __str__(self):
+        return str('loan by:',self.customer)
+
+    class Meta:
+        # Add verbose name
+        verbose_name_plural = 'Loans'
+        verbose_name = "Loan"
+
 
