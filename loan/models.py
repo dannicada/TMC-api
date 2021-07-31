@@ -1,5 +1,6 @@
 from django.db import models
 from customers.models import Customer
+from users.models import User
 
 # Create your models here.
 class Loan(models.Model):
@@ -12,6 +13,7 @@ class Loan(models.Model):
     loan_type = models.CharField(max_length=100, blank=True),
     start_date = models.DateField()
     due_date = models.DateField()
+    staff = models.ForeignKey(to=User, on_delete=models.SET_NULL)
 
 
     def __str__(self):
@@ -21,5 +23,6 @@ class Loan(models.Model):
         # Add verbose name
         verbose_name_plural = 'Loans'
         verbose_name = "Loan"
+
 
 

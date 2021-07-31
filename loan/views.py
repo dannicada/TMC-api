@@ -10,7 +10,7 @@ from .serializers import LoanSerializer
 
 # Create your views here.
 
-class Loan(ModelViewSet):
+class LoanView(ModelViewSet):
     queryset = Loan.objects.all()
     serializer_class = LoanSerializer
 
