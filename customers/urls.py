@@ -2,8 +2,10 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('customer/create/', views.CustomerView().as_view({'post':'create'}), name='create-customer'),
-    path('customer/update/<int:pk>/', views.CustomerView().as_view({'put': 'partial_update'}), name='update-customer'),
+    path('customer/create/', views.CustomerView.as_view({'post':'create'}), name='create-customer'),
+    path('customer/update/<int:pk>/', views.CustomerView.as_view({'put': 'partial_update'}), name='update-customer'),
+    path('customer/list/', views.CustomerView.as_view({'get': 'list'}), name='list-customers'),
+
 
 
     # path('team/<int:pk>/',views.RetrieveTeamView.as_view(), name='get-team'),

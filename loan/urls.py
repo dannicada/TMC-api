@@ -2,8 +2,8 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('loan/create/', views.ExchangeView.as_view({'post':'create'}), name='create-exchange'),
-    path('loan/update/<int:pk>/', views.ExchangeView.as_view({'put': 'partial_update'}), name='update-exchange'),
+    path('loan/create/', views.LoanView.as_view({'post':'create'}), name='create-exchange'),
+    path('loan/update/<int:pk>/', views.LoanView.as_view({'put': 'partial_update'}), name='update-exchange'),
 
 
     # path('team/<int:pk>/',views.RetrieveTeamView.as_view(), name='get-team'),

@@ -2,6 +2,9 @@ from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
 from .models import *
 from .serializers import CustomerSerializer
+from rest_framework.response import Response
+from rest_framework import status
+
 
 
 
