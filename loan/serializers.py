@@ -1,11 +1,12 @@
 from rest_framework.serializers import ModelSerializer
-from .models import Customer
+from .models import Loan
+from django.core.exceptions import ValidationError
 
 
 
 class LoanSerializer(ModelSerializer):
     class Meta:
-        model = Customer
+        model = Loan
         fields = '__all__'
     
 

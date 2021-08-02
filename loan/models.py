@@ -6,13 +6,13 @@ from users.models import User
 class Loan(models.Model):
     customer = models.ForeignKey(to=Customer, on_delete=models.SET_NULL, null=True)
     amount = models.DecimalField(blank=True, max_digits=19, decimal_places=10)
-    repayment_amount = models.DecimalField(blank=True, max_digits=19, decimal_places=10)
+    repayment_amount = models.DecimalField(blank=True, null=True, max_digits=19, decimal_places=10)
     interest = models.DecimalField(blank=True, max_digits=19, decimal_places=10)
     repaid = models.BooleanField(default=False)
     approved = models.BooleanField(default=False)
     loan_type = models.CharField(max_length=100, blank=True),
-    start_date = models.DateField()
-    due_date = models.DateField()
+    start_date = models.DateField(blank=True, null=True)
+    due_date = models.CharField(max_length=30)
     staff = models.ForeignKey(to=User, null=True, on_delete=models.SET_NULL)
 
 
