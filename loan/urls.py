@@ -4,6 +4,7 @@ from . import views
 urlpatterns = [
     path('loan/create/', views.LoanView.as_view({'post':'create'}), name='create-exchange'),
     path('loan/update/<int:pk>/', views.LoanView.as_view({'put': 'partial_update'}), name='update-exchange'),
+    path('loan/list/', views.LoanView.as_view({'get': 'list'}), name='list-laons'),
 
 
     # path('team/<int:pk>/',views.RetrieveTeamView.as_view(), name='get-team'),

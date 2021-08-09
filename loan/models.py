@@ -10,14 +10,15 @@ class Loan(models.Model):
     interest = models.DecimalField(blank=True, max_digits=19, decimal_places=10)
     repaid = models.BooleanField(default=False)
     approved = models.BooleanField(default=False)
-    loan_type = models.CharField(max_length=100, blank=True),
+    loan_type = models.CharField(max_length=100, blank=True)
     start_date = models.DateField(blank=True, null=True)
+    active = models.BooleanField(default=False)
     due_date = models.CharField(max_length=30)
-    staff = models.ForeignKey(to=User, null=True, on_delete=models.SET_NULL)
+    staff = models.ForeignKey(to=User, blank=True, null=True, on_delete=models.SET_NULL)
 
 
-    def __str__(self):
-        return str('loan by:',self.customer)
+    # def __str__(self):
+    #     return str('loan by:',self.customer)
 
     class Meta:
         # Add verbose name
